@@ -1,2 +1,2 @@
 # ConeBot
-robot for collect traffic cones
+robot for collecting traffic cones
