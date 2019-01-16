@@ -1,21 +1,22 @@
-from flask import Flask
+from flask import Flask, jsonify
 import motors as motors
 import datetime
+
 
 app = Flask(__name__)
 
 @app.route("/")
-def hello():
+def hello(methods=['GET']):
    now = datetime.datetime.now()
    timeString = now.strftime("%Y-%m-%d %H:%M")
    templateData = {
       'title' : 'HELLO!',
       'time': timeString
       }
-   return render_template('main.html', **templateData)
+   return jsonify(templateData)
 
 @app.route("/test")
-def test():
+def test(methods=['GET']):
     motors.test_motors()
 
     templateData = {
@@ -23,10 +24,10 @@ def test():
       'response' : ':0'
       }
 
-    return render_template('cmd.html', **templateData)
+    return jsonify(templateData)
 
 @app.route("/reset")
-def reset():
+def reset(methods=['GET']):
     motors.reset()
 
     templateData = {
@@ -34,10 +35,10 @@ def reset():
       'response' : ':0'
       }
 
-    return render_template('cmd.html', **templateData)
+    return jsonify(templateData)
 
 @app.route("/left/<delay>/<throttle>")
-def left(delay, throttle):
+def left(delay, throttle, methods=['GET']):
     motors.left_motors(delay, throttle)
 
     templateData = {
@@ -45,10 +46,10 @@ def left(delay, throttle):
       'response' : ':0'
       }
 
-    return render_template('cmd.html', **templateData)
+    return jsonify(templateData)
 
 @app.route("/right/<delay>/<throttle>")
-def right(delay, throttle):
+def right(delay, throttle, methods=['GET']):
     motors.right_motors(delay, throttle)
 
     templateData = {
@@ -56,10 +57,10 @@ def right(delay, throttle):
       'response' : ':0'
       }
 
-    return render_template('cmd.html', **templateData)
+    return jsonify(templateData)
 
 @app.route("/forward/<delay>/<throttle>")
-def forward(delay, throttle):
+def forward(delay, throttle, methods=['GET']):
     motors.forward(delay, throttle)
 
     templateData = {
@@ -67,10 +68,10 @@ def forward(delay, throttle):
       'response' : ':0'
       }
 
-    return render_template('cmd.html', **templateData)
+    return jsonify(templateData)
 
 @app.route("/backward/<delay>/<throttle>")
-def backward(delay, throttle):
+def backward(delay, throttle, methods=['GET']):
     motors.backward(delay, throttle)
 
     templateData = {
@@ -78,10 +79,10 @@ def backward(delay, throttle):
       'response' : ':0'
       }
 
-    return render_template('cmd.html', **templateData)
+    return jsonify(templateData)
 
 @app.route("/ccw/<delay>/<throttle>")
-def turn_CCW(delay, throttle):
+def turn_CCW(delay, throttle, methods=['GET']):
     motors.turn_CCW(delay, throttle)
 
     templateData = {
@@ -89,10 +90,10 @@ def turn_CCW(delay, throttle):
       'response' : ':0'
       }
 
-    return render_template('cmd.html', **templateData)
+    return jsonify(templateData)
 
 @app.route("/cw/<delay>/<throttle>")
-def turn_CW(delay, throttle):
+def turn_CW(delay, throttle, methods=['GET']):
     motors.turn_CW(delay, throttle)
 
     templateData = {
@@ -100,7 +101,7 @@ def turn_CW(delay, throttle):
       'response' : ':0'
       }
 
-    return render_template('cmd.html', **templateData)
+    return jsonify(templateData)
 
 
 if __name__ == "__main__":
