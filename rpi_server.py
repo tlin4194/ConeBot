@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-import motors as motors
+import motors
 import datetime
 
 
