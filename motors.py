@@ -42,48 +42,47 @@ def right_motors(right_delay, right_throttle):
     kit.motor3.throttle = right_throttle
     kit.motor4.throttle = right_throttle
 
-
 def tele_forward():
-    left_motors(0.1,1)
-    right_motors(0.1,-1)
+    left_motors(0.1,-1)
+    right_motors(0.1,1)
     reset_motors()
 
 def tele_backward():
-    left_motors(0.1,-1)
-    right_motors(0.1,1)
+    left_motors(0.1,1)
+    right_motors(0.1,-1)
     reset_motors()
 
 def tele_turnCCW():
     reset_motors()
-    left_motors(0.1,1)
-    right_motors(0.1,1)
-
-def tele_turnCW():
-    reset_motors()
     left_motors(0.1,-1)
     right_motors(0.1,-1)
 
+def tele_turnCW():
+    reset_motors()
+    left_motors(0.1,1)
+    right_motors(0.1,1)
+
 def forward(delay, throttle): #move robot forward
-    left_motors(delay, -throttle)
-    right_motors(delay, throttle)
+    left_motors(delay, throttle)
+    right_motors(delay, -throttle)
     time.sleep(delay)
     reset_motors()
 
 def backward(delay, throttle): #move robot backward
-    left_motors(delay, throttle)
-    right_motors(delay, -throttle)
-    time.sleep(delay)
-    reset_motors()
-
-def turnCCW(delay, throttle): #turn robot counterclockwise
-    left_motors(delay, throttle)
+    left_motors(delay, -throttle)
     right_motors(delay, throttle)
     time.sleep(delay)
     reset_motors()
 
-def turnCW(delay, throttle): #turn robot clockwise
+def turnCCW(delay, throttle): #turn robot counterclockwise
     left_motors(delay, -throttle)
     right_motors(delay, -throttle)
+    time.sleep(delay)
+    reset_motors()
+
+def turnCW(delay, throttle): #turn robot clockwise
+    left_motors(delay, throttle)
+    right_motors(delay, throttle)
     time.sleep(delay)
     reset_motors()
 
