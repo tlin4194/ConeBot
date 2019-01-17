@@ -79,11 +79,13 @@ def backward(delay, throttle): #move robot backward
 def turnCCW(delay, throttle): #turn robot counterclockwise
     left_motors(delay, throttle)
     right_motors(delay, throttle)
+    time.sleep(delay)
     reset_motors()
 
 def turnCW(delay, throttle): #turn robot clockwise
     left_motors(delay, -throttle)
     right_motors(delay, -throttle)
+    time.sleep(delay)
     reset_motors()
 
 #test_motors()
