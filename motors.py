@@ -10,17 +10,18 @@ Fix negative numbers (CCW vs CW) for throttle values
 kit = MotorKit()
 
 def test_motors():
+    print("testing")
     kit.motor1.throttle = 1.0
-    time.sleep(0.5)
+    time.sleep(3)
     kit.motor1.throttle = 0
     kit.motor2.throttle = 1.0
-    time.sleep(0.5)
+    time.sleep(3)
     kit.motor2.throttle = 0
     kit.motor3.throttle = 1.0
-    time.sleep(0.5)
+    time.sleep(3)
     kit.motor3.throttle = 0
     kit.motor4.throttle = 1.0
-    time.sleep(0.5)
+    time.sleep(3)
     kit.motor4.throttle = 0
 
 def reset_motors():
@@ -59,3 +60,4 @@ def turn_CW(delay, throttle): #turn robot clockwise
     right_motors(delay, -throttle)
     reset_motors()
 
+#test_motors()
