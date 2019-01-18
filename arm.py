@@ -13,6 +13,9 @@ def arm_release():
 def arm_down(): #passive grabbing of cone
     p.ChangeDutyCycle(11.5)
 
+def arm_hover():
+    p.ChangeDutyCycle(8)
+
 def arm_up():
     p.ChangeDutyCycle(3.25)
 

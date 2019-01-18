@@ -37,7 +37,8 @@ const keybinds = {
     a: 'ccw',
     d: 'cw',
     ArrowUp: 'armup',
-    ArrowDown: 'armdown',
+    ArrowDown: 'armhover',
+    Enter: 'armdown',
     Backspace: 'armrelease'
 }
 

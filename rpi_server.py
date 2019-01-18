@@ -34,6 +34,8 @@ def teleop(cmd, methods=['GET']):
         motors.tele_turnCW()
     if (cmd == 'armup'):
         arm.arm_up()
+    if (cmd == 'armhover'):
+        arm.arm_hover()
     if (cmd == 'armdown'):
         arm.arm_down()
     if (cmd == 'armrelease'):

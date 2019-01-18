@@ -45,13 +45,13 @@ def right_motors(right_delay, right_throttle):
 
 def tele_forward():
     reset_motors()
-    left_motors(0.1,-1)
-    right_motors(0.1,1)
+    left_motors(0.1,-0.8)
+    right_motors(0.1,0.8)
 
 def tele_backward():
     reset_motors()
-    left_motors(0.1,1)
-    right_motors(0.1,-1)
+    left_motors(0.1,0.8)
+    right_motors(0.1,-0.8)
 
 def tele_turnCCW():
     reset_motors()
