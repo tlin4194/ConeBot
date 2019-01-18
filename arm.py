@@ -14,7 +14,7 @@ def arm_down(): #passive grabbing of cone
     p.ChangeDutyCycle(11.5)
 
 def arm_up():
-    p.ChangeDutyCycle(2.5)
+    p.ChangeDutyCycle(3.25)
 
 # p.stop()
 # GPIO.cleanup()
