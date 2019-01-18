@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, Response
 import motors
+import arm
 import datetime
 from camera import Camera
 
@@ -32,6 +33,28 @@ def reset(methods=['GET']):
 
     templateData = {
       'title' : 'Reset',
+      'response' : ':0'
+      }
+
+    return jsonify(templateData)
+
+@app.route("/teleop/<cmd>")
+def teleop(methods=['GET']):
+    if (cmd == 'fwd'):
+        motors.tele_forward()
+    if (cmd == 'bck'):
+        motors.tele_backward()
+    if (cmd == 'ccw'):
+        motors.tele_turnCCW()
+    if (cmd == 'cw'):
+        motors.tele_turnCW()
+    if (cmd == 'armup'):
+        arm.arm_up()
+    if (cmd == 'armdown'):
+        arm.arm_down()
+
+    templateData = {
+      'title' : 'Teleop' + cmd,
       'response' : ':0'
       }
 
