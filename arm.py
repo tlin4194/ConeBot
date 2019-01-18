@@ -1,24 +1,23 @@
 import time
 import RPi.GPIO as GPIO
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(19, GPIO.OUT) #12
 
-p = GPIO.PWM(19, 50)  # channel=12 frequency=50Hz
-p.start(0)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(13, GPIO.OUT)
 
+p = GPIO.PWM(13, 50)    # frequency 50 Hz (period 20 ms)
+p.start(13)
+
+def arm_release():
+    p.ChangeDutyCycle(13)
 
 def arm_down(): #passive grabbing of cone
-    p.changeDutyCycle(10) #need to calibrate value
-    time.sleep(2)
+    p.ChangeDutyCycle(11.5)
 
-def arm_up(): 
-    p.changeDutyCycle(0) #need to calibrate value
-    time.sleep(2)
+def arm_up():
+    p.ChangeDutyCycle(2.5)
 
-def main():
-    arm_down()
-    arm_up()
-    p.stop()
-    GPIO.cleanup()
+# p.stop()
+# GPIO.cleanup()
 
-main()
+arm_down()
+

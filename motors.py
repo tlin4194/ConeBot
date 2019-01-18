@@ -15,17 +15,18 @@ Odd numbered motors are in the front, even numbered in the back
 kit = MotorKit()
 
 def test_motors():
+    print("testing")
     kit.motor1.throttle = 1.0
-    time.sleep(0.5)
+    time.sleep(3)
     kit.motor1.throttle = 0
     kit.motor2.throttle = 1.0
-    time.sleep(0.5)
+    time.sleep(3)
     kit.motor2.throttle = 0
     kit.motor3.throttle = 1.0
-    time.sleep(0.5)
+    time.sleep(3)
     kit.motor3.throttle = 0
     kit.motor4.throttle = 1.0
-    time.sleep(0.5)
+    time.sleep(3)
     kit.motor4.throttle = 0
 
 def reset_motors():
@@ -86,3 +87,4 @@ def turnCW(delay, throttle): #turn robot clockwise
     time.sleep(delay)
     reset_motors()
 
+#test_motors()
