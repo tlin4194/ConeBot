@@ -39,7 +39,7 @@ def reset(methods=['GET']):
     return jsonify(templateData)
 
 @app.route("/teleop/<cmd>")
-def teleop(methods=['GET']):
+def teleop(cmd, methods=['GET']):
     if (cmd == 'fwd'):
         motors.tele_forward()
     if (cmd == 'bck'):
