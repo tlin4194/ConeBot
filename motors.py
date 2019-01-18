@@ -44,14 +44,14 @@ def right_motors(right_delay, right_throttle):
     kit.motor4.throttle = right_throttle
 
 def tele_forward():
+    reset_motors()
     left_motors(0.1,-1)
     right_motors(0.1,1)
-    reset_motors()
 
 def tele_backward():
+    reset_motors()
     left_motors(0.1,1)
     right_motors(0.1,-1)
-    reset_motors()
 
 def tele_turnCCW():
     reset_motors()
