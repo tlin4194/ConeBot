@@ -8,13 +8,13 @@ p = GPIO.PWM(18, 50)  # channel=12 frequency=50Hz
 p.start(7.5)
 
 def arm_release():
-    p.ChangeDutyCycle(4) # (0.8 ms / 20 ms)
+    p.ChangeDutyCycle(3) # (0.8 ms / 20 ms)
 
 def arm_down(): #passive grabbing of cone
-    p.ChangeDutyCycle(5.5)
+    p.ChangeDutyCycle(4)
 
 def arm_up():
-    p.ChangeDutyCycle(11) # (2.2 ms / 20 ms)
+    p.ChangeDutyCycle(12) # (2.2 ms / 20 ms)
 
 def main():
     arm_down()
