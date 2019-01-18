@@ -8,35 +8,21 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello(methods=['GET']):
-   now = datetime.datetime.now()
-   timeString = now.strftime("%Y-%m-%d %H:%M")
-   templateData = {
-      'title' : 'HELLO!',
-      'time': timeString
-      }
-   return jsonify(templateData)
+    now = datetime.datetime.now()
+    timeString = now.strftime("%Y-%m-%d %H:%M")
+    return jsonify({})
 
 @app.route("/test")
 def test(methods=['GET']):
     motors.test_motors()
 
-    templateData = {
-      'title' : 'Test Motors',
-      'response' : ':0'
-      }
-
-    return jsonify(templateData)
+    return jsonify({})
 
 @app.route("/reset")
 def reset(methods=['GET']):
     motors.reset()
 
-    templateData = {
-      'title' : 'Reset',
-      'response' : ':0'
-      }
-
-    return jsonify(templateData)
+    return jsonify({})
 
 @app.route("/teleop/<cmd>")
 def teleop(cmd, methods=['GET']):
@@ -53,78 +39,55 @@ def teleop(cmd, methods=['GET']):
     if (cmd == 'armdown'):
         arm.arm_down()
 
-    templateData = {
-      'title' : 'Teleop' + cmd,
-      'response' : ':0'
-      }
-
-    return jsonify(templateData)
+    return jsonify({})
 
 @app.route("/left/<delay>/<throttle>")
 def left(delay, throttle, methods=['GET']):
+    delay = int(delay)
+    throttle = int(throttle)
     motors.left_motors(delay, throttle)
 
-    templateData = {
-      'title' : 'Left motors ' + delay + ' ' + throttle,
-      'response' : ':0'
-      }
-
-    return jsonify(templateData)
+    return jsonify({})
 
 @app.route("/right/<delay>/<throttle>")
 def right(delay, throttle, methods=['GET']):
+    delay = int(delay)
+    throttle = int(throttle)
     motors.right_motors(delay, throttle)
 
-    templateData = {
-      'title' : 'Right motors ' + delay + ' ' + throttle,
-      'response' : ':0'
-      }
-
-    return jsonify(templateData)
+    return jsonify({})
 
 @app.route("/forward/<delay>/<throttle>")
 def forward(delay, throttle, methods=['GET']):
+    delay = int(delay)
+    throttle = int(throttle)
     motors.forward(delay, throttle)
 
-    templateData = {
-      'title' : 'Forward ' + delay + ' ' + throttle,
-      'response' : ':0'
-      }
-
-    return jsonify(templateData)
+    return jsonify({})
 
 @app.route("/backward/<delay>/<throttle>")
 def backward(delay, throttle, methods=['GET']):
+    delay = int(delay)
+    throttle = int(throttle)
     motors.backward(delay, throttle)
 
-    templateData = {
-      'title' : 'Backward ' + delay + ' ' + throttle,
-      'response' : ':0'
-      }
-
-    return jsonify(templateData)
+    return jsonify({})
 
 @app.route("/ccw/<delay>/<throttle>")
 def turn_CCW(delay, throttle, methods=['GET']):
+    delay = int(delay)
+    throttle = int(throttle)
     motors.turn_CCW(delay, throttle)
 
-    templateData = {
-      'title' : 'Turn CCW ' + delay + ' ' + throttle,
-      'response' : ':0'
-      }
-
-    return jsonify(templateData)
+    return jsonify({})
 
 @app.route("/cw/<delay>/<throttle>")
 def turn_CW(delay, throttle, methods=['GET']):
+    delay = int(delay)
+    throttle = int(throttle)
     motors.turn_CW(delay, throttle)
 
-    templateData = {
-      'title' : 'Turn CW ' + delay + ' ' + throttle,
-      'response' : ':0'
-      }
-
-    return jsonify(templateData)
+    return jsonify({})
 
 def gen(camera):
     while True:
