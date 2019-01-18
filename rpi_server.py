@@ -4,13 +4,11 @@ import arm
 import datetime
 from camera import Camera
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='', static_folder='www')
 
 @app.route("/")
-def hello(methods=['GET']):
-    now = datetime.datetime.now()
-    timeString = now.strftime("%Y-%m-%d %H:%M")
-    return jsonify({})
+def index(methods=['GET']):
+    return app.send_static_file('index.html')
 
 @app.route("/test")
 def test(methods=['GET']):
@@ -20,7 +18,7 @@ def test(methods=['GET']):
 
 @app.route("/reset")
 def reset(methods=['GET']):
-    motors.reset()
+    motors.reset_motors()
 
     return jsonify({})
 
@@ -38,6 +36,8 @@ def teleop(cmd, methods=['GET']):
         arm.arm_up()
     if (cmd == 'armdown'):
         arm.arm_down()
+    if (cmd == 'armrelease'):
+        arm.arm_release()
 
     return jsonify({})
 
